@@ -1,7 +1,7 @@
 from django.shortcuts import redirect, render
 from django.views import View 
 from django.views.generic.base import TemplateView
-# from .models import Country, City, Post, Comment, Profile
+from .models import Country, City, Post, Comment, Profile
 from django.views.generic import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse
@@ -86,3 +86,7 @@ class Signup(View):
         else:
             context = {"form": form}
             return render(request, "registration/signup.html", context)
+
+
+class Profile(View):
+    def get(self, request):
