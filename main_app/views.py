@@ -1,15 +1,17 @@
 from django.shortcuts import redirect, render
 from django.views import View 
 from django.views.generic.base import TemplateView
+from .models import Post
+from django.views.generic import ListView
 # from .models import  Profile
-from .models import Country, City, Post, Comment, Profile
-from django.views.generic import DetailView
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
+# Country, City, Comment, Profile
+# from django.views.generic import DetailView
+# from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse
 from django.contrib.auth import login
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.decorators import login_required
-from django.utils.decorators import method_decorator
+# from django.contrib.auth.forms import UserCreationForm
+# from django.contrib.auth.decorators import login_required
+# from django.utils.decorators import method_decorator
 
 
 
@@ -21,8 +23,9 @@ class About(TemplateView):
     template_name = "about.html"
 
 
-# class Post(TemplateView):
-#     template_name = "post.html"
+class Post(ListView):
+    model= Post
+    template_name = "post.html"
     
 #     def get_context_data(self, **kwargs):
 #         context = super().get_context_data(**kwargs)
